@@ -2,7 +2,20 @@
 ## Executive Summary
 
 ### Overview
-[2-3 sentences: what this analyzes, what data, what time period]
+
+This analysis examines the relationship between Japan's macroeconomic 
+indicators and market performance using three live data sources — 
+Yahoo Finance, the World Bank, and FRED — covering 2014-2023 across 
+GDP, unemployment, inflation, exchange rates, and Nikkei 225 market 
+data. Unlike traditional analyses that assume economic growth and 
+stock market performance move together, this project asks a more 
+critical question: does Japan's underlying economic health actually 
+predict market behavior, or can the two diverge? The analysis 
+progresses from broad correlation and trend analysis to event-specific 
+examination of major economic shocks, before bringing multiple 
+indicators together through a composite Recovery Score — providing a 
+fuller view of how economic fundamentals and market performance can 
+move together, or tell very different stories.
 
 ### Key Finding 1 — GDP and Nikkei Diverge
 The correlation between Japan's GDP and Nikkei 225 performance is 
@@ -88,23 +101,16 @@ steadier growth is comparatively more currency-dependent, rising and
 falling more closely in step with yen movements rather than driven by 
 independent business catalysts.
 
-### Key Finding 7 — COVID Crash and the "Recovering vs Recovered" Gap
-soon!
+### Key Finding 7 — Recovering vs Fully Recovered
+Nikkei began visibly recovering from its March 2020 trough within 
+weeks, but full recovery to its January 2020 peak of 24,084 didn't 
+occur until November 5, 2020 — 231 days later. This gap matters 
+because someone reading only a quick "market recovering" headline in 
+June might assume the losses had already been erased, when in reality 
+the Nikkei was still below its pre-crash peak. A market can be 
+recovering strongly without being fully recovered.
 
-### Key Finding 8 — 2016's Hidden Volatility (Brexit + BOJ)
-30-day rolling volatility shows 2016 (1.650) as the most volatile 
-year in the entire decade — higher than even the COVID crash year 
-of 2020 (1.439). This is likely explained by two compounding shocks 
-within the same year: the BOJ's surprise introduction of negative 
-interest rate policy in January 2016, followed by the UK's Brexit 
-referendum in June 2016, which caught global markets off guard and 
-triggered a worldwide flight to safe-haven currencies including the 
-yen. This finding is a reminder that volatility and crisis severity 
-don't always align with the events that receive the most attention 
-in hindsight — a full explanation of this spike would benefit from 
-further research beyond this project's scope.
-
-### Key Finding 9 — The 2022-2023 Yen-Inflation-Nikkei Chain
+### Key Finding 8 — The 2022-2023 Yen-Inflation-Nikkei Chain
 The BOJ held its rate near zero (-0.03% in 2022) while the US Federal 
 Reserve raised rates aggressively, creating a widening policy gap 
 that drove USD/JPY from 109 in 2021 to 131 in 2022, and further to 
@@ -119,6 +125,20 @@ uncertainty that temporarily canceled out the weak-yen benefit for
 exporters. By 2023, as that initial shock stabilized, the underlying 
 weak-yen mechanism reasserted itself cleanly, driving Nikkei to its 
 decade high even as inflation climbed further.
+
+
+### Key Finding 9 — 2016 Was Japan's Most Volatile Year, Not COVID
+30-day rolling volatility shows 2016 (1.650) as the most volatile 
+year in the entire decade — higher than even the COVID crash year 
+of 2020 (1.439). This is likely explained by two compounding shocks 
+within the same year: the BOJ's surprise introduction of negative 
+interest rate policy in January 2016, followed by the UK's Brexit 
+referendum in June 2016, which caught global markets off guard and 
+triggered a worldwide flight to safe-haven currencies including the 
+yen. This finding is a reminder that volatility and crisis severity 
+don't always align with the events that receive the most attention 
+in hindsight — a full explanation of this spike would benefit from 
+further research beyond this project's scope.
 
 ### Key Finding 10 — The Recovery Score Masks GDP's Real Decline
 Japan's composite recovery score rose from 100 in 2014 to 141.5 by 
@@ -135,7 +155,53 @@ index should always be read alongside its individual components,
 never as a standalone number.
 
 ### Recommendations
-[3 specific, actionable — same discipline as Japan Trade]
+
+**1. Verify GDP-driven headlines against market data before drawing 
+conclusions.** Economic headlines about Japan should not be interpreted 
+as direct signals of stock-market performance — GDP growth and the 
+Nikkei can diverge significantly, meaning a weak domestic economy does 
+not necessarily imply a weak equity market, and strong GDP growth does 
+not automatically guarantee market gains. Investors and analysts should 
+evaluate multiple indicators, including corporate performance, currency 
+movements, global demand, and market expectations, rather than relying 
+on GDP headlines alone.
+
+**2. Assess yen sensitivity at the company level, not the market level.** 
+The impact of yen movements is not uniform across Japanese stocks — 
+export-oriented companies like Toyota respond differently to currency 
+changes than diversified businesses like Sony. Before using yen 
+movements to predict stock performance, analysts should examine each 
+company's revenue geography, export exposure, overseas costs, and 
+currency hedging strategy.
+
+**3. Treat historical currency-market correlations as conditional, 
+not fixed.** The 2022-2023 period shows that relationships observed 
+under normal conditions can weaken, reverse, or distort entirely when 
+geopolitical conflict, energy shocks, or central bank policy shifts 
+intervene. Currency movements should always be interpreted alongside 
+their broader economic and geopolitical context, not assumed to hold 
+under all conditions.
 
 ### Limitations
-[Data / Methodology / Scope — same 3-category structure]
+
+#### Limitation 1 — Small Sample Size Limits Statistical Confidence
+
+Most of the project's macroeconomic analysis is based on a 10-year 
+dataset merged at annual frequency, meaning that the majority of 
+correlation results are calculated from only 10 data points. This 
+relatively small sample size limits the statistical confidence that 
+can be placed in individual correlation coefficients, as a small 
+number of observations can be disproportionately influenced by 
+unusual years or major economic shocks. The relationships identified 
+in this analysis should therefore be interpreted as exploratory 
+patterns rather than statistically robust conclusions that can be 
+confidently generalized beyond the observed period.
+
+#### Limitation 2: Missing US–Japan Interest Rate Differential
+
+The analysis examines the relationship between the Bank of Japan's policy rate and the yen, but it does not include US Federal Reserve interest rate data. As a result, the observed BOJ–yen correlation of -0.22 captures only one side of the interest-rate mechanism influencing the currency. Exchange-rate movements are often affected by the relative difference between Japanese and US interest rates rather than the BOJ's policy rate in isolation. A future version of the analysis should incorporate Federal Reserve rates and calculate the US–Japan interest rate differential to provide a more complete assessment of how monetary policy influences the yen.
+
+
+#### Limitation 3: Limited Company-Level Sample
+
+This analysis tested individual yen sensitivity for only two companies out of the 225 companies represented in the Nikkei 225—Toyota and Sony. These companies were selected to provide a comparison between a strongly export-oriented business and a more diversified company with mixed revenue exposure. However, a sample of only two companies is too limited to generalize the finding that more export-dependent companies consistently respond more strongly to yen movements across the entire Japanese market. Other companies may have different international revenue structures, supply-chain costs, hedging strategies, or currency exposures that produce substantially different relationships. A future version of the analysis should expand the company-level sample across multiple sectors and business models to test whether this pattern holds more broadly across the Nikkei 225.
