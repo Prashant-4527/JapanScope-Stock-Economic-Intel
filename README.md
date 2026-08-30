@@ -94,12 +94,6 @@ JapanScope-Stock-Economic-Intel/
 - **A live data bug caught, fixed, and locked in as a test.** `IRSTCB01JPM156N` returned a flat 0.3% BOJ rate across all 120 months; switched to `IR3TIB01JPM156N` (3-month interbank rate) after diagnosing the flat series, then added `test_boj_rate_has_variation()` so the same bug can't silently corrupt results again.
 - **The Recovery Score is checked against its own inputs, not reported standalone** — GDP, Nikkei, and unemployment are indexed to a common 2014 base (unemployment inverted so higher is always "better"), which is what exposed that the composite and its GDP component tell opposite stories.
 
-## Future Improvements (v2 Roadmap)
-
-- Pull US Fed funds rate data from FRED and test the actual US–Japan interest-rate *differential* against USD/JPY, instead of BOJ's rate in isolation (the executive summary already flags this as Limitation 2)
-- Extend yen-sensitivity testing beyond Toyota and Sony to more Nikkei 225 constituents across sectors, to check whether "pure exporters react more" holds beyond a 2-company sample (Limitation 3)
-- Turn `04_dashboard.ipynb` into a live Streamlit app — the Dockerfile already containerizes the project, so swapping its `CMD` from `jupyter notebook` to `streamlit run` would make the dashboard interactive instead of four static PNGs
-- Add ARIMA/Prophet forecasting on top of the annual macro-market series, then validate it against real subsequent years — the same forecast-then-verify approach Japan Trade Intelligence used against actual Ministry of Finance data
 
 ## Author
 
